@@ -1,6 +1,7 @@
+#This code might not be reusable because you can find any "request_with_caching" module in python but can you can develop your own,
+#the purpose is understand how api works and in this code is written to extract movies names, if you want to write query on other things 
+# you can visit the api file provided and give the required parameters in param attribute in requests_with_caching.get function.
 
-# some invocations that we use in the automated tests; uncomment these if you are getting errors and want better error messages
-# get_sorted_recommendations(["Bridesmaids", "Sherlock Holmes"])
 
 import requests_with_caching
 import json
@@ -70,5 +71,6 @@ def get_sorted_recommendations(titles):
     elements = get_related_titles(titles)
     title = sorted(elements, key = lambda element: (get_movie_rating(get_movie_data(element)), element), reverse = True)
     return title
-print(get_sorted_recommendations(["Bridesmaids", "Sherlock Holmes"])) 
+# You can call the function as below by passing arguments you like.
+#print(get_sorted_recommendations(["Bridesmaids", "Sherlock Holmes"])) 
     
